@@ -8,19 +8,31 @@ import { fetchImagesByQuery } from "./services/api";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import ImageModal from "./components/ImageModal/ImageModal";
 
-function App() {
-  const [images, setImages] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isError, setIsError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
-  const [loadMoreBtn, setLoadMoreBtn] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [imgInfo, setImgInfo] = useState({});
-  const [imgModalIsOpen, setImgModalIsOpen] = useState(false);
-  const per_page = 12;
+interface Image {
+  id: number;
+  image: string;
+}
 
-  const handleSearch = (query) => {
+interface ImgInfo {
+  srcImgModal: string;
+  description: string;
+  likes: number;
+  author: string;
+}
+
+function App() {
+  const [images, setImages] = useState<Image[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>("");
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [loadMoreBtn, setLoadMoreBtn] = useState<boolean>(false);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [imgInfo, setImgInfo] = useState<ImgInfo | null>(null);
+  const [imgModalIsOpen, setImgModalIsOpen] = useState<boolean>(false);
+  const per_page: number = 12;
+
+  const handleSearch = (query: string) => {
     if (query !== "" && query !== searchQuery) {
       setSearchQuery(query);
       setImages([]);
@@ -68,7 +80,7 @@ function App() {
     setCurrentPage((prevPage) => prevPage + 1);
   };
 
-  const handleOnImgClick = (image) => {
+  const handleOnImgClick = (image: ImgInfo) => {
     setImgInfo(image);
     openImgModal();
   };
@@ -96,7 +108,10 @@ function App() {
         <ImageModal
           onImgModalOpen={imgModalIsOpen}
           onImgModalClose={closeImgModal}
-          {...imgInfo}
+          srcImgModal={imgInfo?.srcImgModal || ""}
+          description={imgInfo?.description || ""}
+          likes={imgInfo?.likes || 0}
+          author={imgInfo?.author || ""}
         />
       }
     </div>

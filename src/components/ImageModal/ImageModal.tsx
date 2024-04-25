@@ -3,6 +3,15 @@ import ReactModal from "react-modal";
 
 ReactModal.setAppElement("#root");
 
+type ImageModalProps = {
+  onImgModalOpen: boolean;
+  onImgModalClose: () => void;
+  srcImgModal: string;
+  description: string;
+  likes: number;
+  author: string;
+};
+
 const ImageModal = ({
   onImgModalOpen,
   onImgModalClose,
@@ -10,7 +19,7 @@ const ImageModal = ({
   description,
   likes,
   author,
-}) => {
+}: ImageModalProps) => {
   return (
     <ReactModal
       className={css.Modal}
