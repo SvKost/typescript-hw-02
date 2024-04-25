@@ -1,0 +1,34 @@
+:root {
+  font-family: "Google Sans", "Montserrat", Roboto, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.25px;
+  line-height: normal;
+}
+
+body {
+  font-family: sans-serif;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
