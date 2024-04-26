@@ -1,4 +1,4 @@
-interface Image {
+export interface ImageType {
   id: number;
   urls: { regular: string; small: string };
   description: string;
@@ -6,9 +6,15 @@ interface Image {
   user: { name: string };
 }
 
-interface ImgInfo {
+export interface ImgInfoType {
   srcImgModal: string;
   description: string;
   likes: number;
   author: string;
+}
+
+export interface ApiResponseType {
+  total_pages: number;
+  total: number;
+  results: ImageType[];
 }

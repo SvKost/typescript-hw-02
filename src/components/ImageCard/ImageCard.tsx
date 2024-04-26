@@ -1,8 +1,9 @@
+import { ImageType, ImgInfoType } from "../App/types";
 import css from "./ImageCard.module.css";
 
 interface ImageCardProps {
-  image: Image;
-  onImgClick: (image: ImgInfo) => void;
+  image: ImageType;
+  onImgClick: (image: ImgInfoType) => void;
 }
 
 const ImageCard = ({ image, onImgClick }: ImageCardProps) => {

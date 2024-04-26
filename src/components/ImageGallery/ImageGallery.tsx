@@ -1,9 +1,10 @@
 import ImageCard from "../ImageCard/ImageCard";
+import { ImageType, ImgInfoType } from "../App/types";
 import css from "./ImageGallery.module.css";
 
 interface ImageGalleryProps {
-  images: Image[];
-  onImgClick: (image: ImgInfo) => void;
+  images: ImageType[];
+  onImgClick: (image: ImgInfoType) => void;
 }
 
 const ImageGallery = ({ images, onImgClick }: ImageGalleryProps) => {
