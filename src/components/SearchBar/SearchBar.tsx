@@ -1,32 +1,40 @@
+import { FormEvent, useRef } from "react";
 import css from "./SearchBar.module.css";
 import toast, { Toaster } from "react-hot-toast";
 import { IoSearchOutline } from "react-icons/io5";
 
-const SearchBar = ({ onSearch }) => {
+type SearchBarProps = {
+  onSearch: (query: string) => void;
+};
+
+const SearchBar = ({ onSearch }: SearchBarProps) => {
   const notify = () =>
     toast("Please enter your query!", {
       position: "top-right",
     });
 
-  const handleSubmit = (evt) => {
+  const queryRef = useRef<HTMLInputElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  const handleSubmit = (evt: FormEvent) => {
     evt.preventDefault();
-    const form = evt.target;
-    const query = form.elements.query.value.trim();
+    const query = queryRef.current?.value.trim();
 
     {
       !query ? notify() : onSearch(query);
     }
 
-    form.reset();
+    formRef.current?.reset();
   };
 
   return (
     <header className={css.header}>
-      <form className={css.form} onSubmit={handleSubmit}>
+      <form className={css.form} ref={formRef} onSubmit={handleSubmit}>
         <input
           className={css.input}
           type="text"
-          name="query"
+          ref={queryRef}
+          // name="query"
           autoComplete="off"
           autoFocus
           placeholder="Search images and photos"
