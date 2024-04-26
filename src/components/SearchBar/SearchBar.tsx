@@ -34,7 +34,6 @@ const SearchBar = ({ onSearch }: SearchBarProps) => {
           className={css.input}
           type="text"
           ref={queryRef}
-          // name="query"
           autoComplete="off"
           autoFocus
           placeholder="Search images and photos"

@@ -1,5 +1,4 @@
 import axios from "axios";
-import { ApiResponseType } from "../components/App/types";
 
 axios.defaults.baseURL = "https://api.unsplash.com/search";
 const API_KEY = "vbrwsheIr5-Me-cqCbtmtVPDVb0qTBVGN40WfGoHfxI";

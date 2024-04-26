@@ -6,7 +6,6 @@ import ErrorMessage from "../ErrorMessage/ErrorMessage";
 import { Loader } from "../Loader/Loader";
 import { fetchImagesByQuery } from "../../services/api";
 import ImageModal from "../ImageModal/ImageModal";
-import { AxiosResponse } from "axios";
 import LoadMoreBtn from "../LoadMoreBtn/LoadMoreBtn";
 import { ApiResponseType, ImageType, ImgInfoType } from "./types";
 
