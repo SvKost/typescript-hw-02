@@ -1,19 +1,5 @@
 import css from "./ImageCard.module.css";
 
-type Image = {
-  urls: { regular: string; small: string };
-  description: string;
-  likes: number;
-  user: { name: string };
-};
-
-interface ImgInfo {
-  srcImgModal: string;
-  description: string;
-  likes: number;
-  author: string;
-}
-
 interface ImageCardProps {
   image: Image;
   onImgClick: (image: ImgInfo) => void;

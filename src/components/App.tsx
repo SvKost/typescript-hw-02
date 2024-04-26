@@ -1,27 +1,12 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import SearchBar from "./components/SearchBar/SearchBar";
-import ImageGallery from "./components/ImageGallery/ImageGallery";
-import ErrorMessage from "./components/ErrorMessage/ErrorMessage";
-import { Loader } from "./components/Loader/Loader";
-import { fetchImagesByQuery } from "./services/api";
-import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
-import ImageModal from "./components/ImageModal/ImageModal";
-
-type Image = {
-  id: number;
-  urls: { regular: string; small: string };
-  description: string;
-  likes: number;
-  user: { name: string };
-};
-
-interface ImgInfo {
-  srcImgModal: string;
-  description: string;
-  likes: number;
-  author: string;
-}
+import SearchBar from "./SearchBar/SearchBar";
+import ImageGallery from "./ImageGallery/ImageGallery";
+import ErrorMessage from "./ErrorMessage/ErrorMessage";
+import { Loader } from "./Loader/Loader";
+import { fetchImagesByQuery } from "../services/api";
+import LoadMoreBtn from "./LoadMoreBtn/LoadMoreBtn";
+import ImageModal from "./ImageModal/ImageModal";
 
 function App() {
   const [images, setImages] = useState<Image[]>([]);

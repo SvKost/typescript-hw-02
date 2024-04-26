@@ -1,21 +1,6 @@
 import ImageCard from "../ImageCard/ImageCard";
 import css from "./ImageGallery.module.css";
 
-type Image = {
-  id: number;
-  urls: { regular: string; small: string };
-  description: string;
-  likes: number;
-  user: { name: string };
-};
-
-interface ImgInfo {
-  srcImgModal: string;
-  description: string;
-  likes: number;
-  author: string;
-}
-
 interface ImageGalleryProps {
   images: Image[];
   onImgClick: (image: ImgInfo) => void;
