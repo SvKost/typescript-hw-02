@@ -8,10 +8,13 @@ import { fetchImagesByQuery } from "./services/api";
 import LoadMoreBtn from "./components/LoadMoreBtn/LoadMoreBtn";
 import ImageModal from "./components/ImageModal/ImageModal";
 
-interface Image {
+type Image = {
   id: number;
-  image: string;
-}
+  urls: { regular: string; small: string };
+  description: string;
+  likes: number;
+  user: { name: string };
+};
 
 interface ImgInfo {
   srcImgModal: string;
